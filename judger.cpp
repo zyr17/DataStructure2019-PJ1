@@ -94,6 +94,12 @@ int main(int argc, char **argv) {
 		*/
 		put(a[x] < a[y]);
 		score++; 
+		if (score > 500000){
+			fprintf(stderr, "Too many asks!"); 
+			printf("-1\n");
+			fflush(stdout);
+			return 1; 
+		}
 	}
 	cin>>m; 
 	if (m > k) {

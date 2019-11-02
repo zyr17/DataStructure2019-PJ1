@@ -1,22 +1,25 @@
-import os, sys
+import os, sys, subprocess
 
 C_FLAGS = '-O2'
 CXX_FLAGS = '-O2 -std=c++11'
 
-def C_CXX_Compile(str):
+def C_CXX_Compile(string):
   compile = ''
-  exec = str
-  if '.cpp' == str[-4:]:
-    compile = 'g++ ' + CXX_FLAGS + ' ' + str + ' -o ' + str[:-4]
-    exec = ['./' + str[:-4]]
-  elif '.c' == str[-2:]:
-    compile = 'gcc ' + C_FLAGS + ' ' + str + ' -o ' + str[:-2]
-    exec = ['./' + str[:-2]]
+  exec = string
+  if '.cpp' == string[-4:]:
+    compile = 'g++ ' + CXX_FLAGS + ' ' + string + ' -o ' + string[:-4]
+    exec = ['./' + string[:-4]]
+  elif '.c' == string[-2:]:
+    compile = 'gcc ' + C_FLAGS + ' ' + string + ' -o ' + string[:-2]
+    exec = ['./' + string[:-2]]
   #print(compile, exec)
   if compile != '':
-    print('compiling', str, '...')
-    os.system(compile)
-  return exec
+    print('compiling', string, '...')
+    proc = subprocess.Popen(compile, shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE, bufsize=-1)
+    _, err = proc.communicate()
+  else:
+    err = b''
+  return exec, str(err, encoding='utf8')
 
 argv = sys.argv
 if len(argv) != 4:
@@ -27,8 +30,16 @@ Example: python3 test_all.py data judger.cpp solver.exe'''
     )
     exit()
 
-judger = C_CXX_Compile(argv[2])
-solver = C_CXX_Compile(argv[3])
+judger, judger_err = C_CXX_Compile(argv[2])
+solver, solver_err = C_CXX_Compile(argv[3])
+
+if judger_err != '' or solver_err != '':
+    print('Compile Error:')
+    if judger_err != '':
+        print(judger_err)
+    if solver_err != '':
+        print(solver_err)
+    exit()
 
 datafolder = argv[1]
 inputs = os.listdir(datafolder)
@@ -60,4 +71,5 @@ for input in inputs:
             break
     results.append([jcode, jres, scode, score])
 
+print('Results:')
 print('\n'.join(['|'.join(x) for x in [[str(z) for z in y] for y in results]]))

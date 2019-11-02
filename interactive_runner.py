@@ -67,11 +67,22 @@ def C_CXX_Compile(strs):
   #print(compile, exec)
   if compile != '':
     print('compiling', strs[0], '...')
-    os.system(compile)
-  return exec
+    proc = subprocess.Popen(compile, shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE, bufsize=-1)
+    _, err = proc.communicate()
+  else:
+    err = b''
+  return exec, str(err, encoding='utf8')
 
-judge_args = C_CXX_Compile(judge_args)
-sol_args = C_CXX_Compile(sol_args)
+judge_args, judge_err = C_CXX_Compile(judge_args)
+sol_args, sol_err = C_CXX_Compile(sol_args)
+
+if judge_err != '' or sol_err != '':
+  print('Compile Error:')
+  if judge_err != '':
+    print(judge_err)
+  if sol_err != '':
+    print(sol_err)
+  exit()
 
 t_sol = SubprocessThread(sol_args)
 t_judge = SubprocessThread(judge_args, stdin_pipe=t_sol.p.stdout,
