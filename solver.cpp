@@ -12,5 +12,7 @@ int main() {
 	}
 	printf("0 0\n2\n3 4\n3 5\n");
 	fflush(stdout);
+	int result;
+	scanf("%d", &result);
 	return 0;
 }

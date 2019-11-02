@@ -16,6 +16,8 @@ int log_status = 0;
 bool check(int x, int y) {
 	if (x <= 0 || x > n || y <= 0 || y > n) {
 		fprintf(stderr, "x or y range error: %d %d", x, y); 
+		printf("-1\n");
+		fflush(stdout);
 		return false; 
 	}
 	return true; 
@@ -24,6 +26,8 @@ bool check(int x, int y) {
 bool get(int &x, int &y) {
 	if (!(cin>>x>>y)) {
 		fprintf(stderr, "reached EOF!"); 
+		printf("-1\n");
+		fflush(stdout);
 		return false; 
 	}
 	#ifdef LOG
@@ -52,6 +56,8 @@ int main(int argc, char **argv) {
 
 	if (argc > 2){
 		fprintf(stderr, "Too many arguments! Should input 0 or 1 argument.");
+		printf("-1\n");
+		fflush(stdout);
 		return 1;
 	}
 	else if (argc == 2){
@@ -92,6 +98,8 @@ int main(int argc, char **argv) {
 	cin>>m; 
 	if (m > k) {
 		fprintf(stderr, "Too many swaps!"); 
+		printf("-1\n");
+		fflush(stdout);
 		return 1; 
 	}
 	while (m--) {
@@ -102,9 +110,11 @@ int main(int argc, char **argv) {
 	for (int i = 1; i < n; ++i)
 		if (a[i] > a[i+1]) {
 			fprintf(stderr, "Check failed!" ); 
+			printf("-1\n");
+			fflush(stdout);
 			return 1;
 		}
-	printf("%d", score);
+	printf("%d\n", score);
 	fprintf(stderr, "Passed! Score: %d", score); 
 	fflush(stderr);
 	return 0; 
