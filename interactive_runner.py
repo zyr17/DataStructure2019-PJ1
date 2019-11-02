@@ -91,12 +91,16 @@ while True:
     sol_text = '-'
     try:
       judge_code = t_judge.return_code
-      if 'stderr' in dir(t_sol): judge_text = t_judge.stderr.decode()
+      if 'stderr' in dir(t_judge): judge_text = t_judge.stderr.decode()
       else: judge_text = '+'
       if judge_text == '': judge_text = '-'
-      sol_code = t_sol.return_code
-      if 'stderr' in dir(t_sol): sol_text = t_sol.stderr.decode()
-      else: sol_text = '+'
+      if 'return_code' in dir(t_sol):
+        sol_code = t_sol.return_code
+        if 'stderr' in dir(t_sol): sol_text = t_sol.stderr.decode()
+        else: sol_text = '+'
+      else:
+        sol_code = -1
+        sol_text = 'Still running'
       if sol_text == '': sol_text = '-'
     except Exception as e:
       print("Error occured when getting results.", e)

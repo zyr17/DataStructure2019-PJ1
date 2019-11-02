@@ -15,7 +15,7 @@ int log_status = 0;
 
 bool check(int x, int y) {
 	if (x <= 0 || x > n || y <= 0 || y > n) {
-		fprintf(stderr, "x or y range error: %d %d\n", x, y); 
+		fprintf(stderr, "x or y range error: %d %d", x, y); 
 		return false; 
 	}
 	return true; 
@@ -104,6 +104,7 @@ int main(int argc, char **argv) {
 			fprintf(stderr, "Check failed!" ); 
 			return 1;
 		}
+	printf("%d", score);
 	fprintf(stderr, "Passed! Score: %d", score); 
 	fflush(stderr);
 	return 0; 
