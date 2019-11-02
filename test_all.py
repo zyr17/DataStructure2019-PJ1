@@ -8,10 +8,10 @@ def C_CXX_Compile(str):
   exec = str
   if '.cpp' == str[-4:]:
     compile = 'g++ ' + CXX_FLAGS + ' ' + str + ' -o ' + str[:-4]
-    exec = [str[:-4]]
+    exec = ['./' + str[:-4]]
   elif '.c' == str[-2:]:
     compile = 'gcc ' + C_FLAGS + ' ' + str + ' -o ' + str[:-2]
-    exec = [str[:-2]]
+    exec = ['./' + str[:-2]]
   #print(compile, exec)
   if compile != '':
     print('compiling', str, '...')

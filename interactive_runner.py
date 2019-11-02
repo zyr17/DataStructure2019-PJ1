@@ -60,10 +60,10 @@ def C_CXX_Compile(strs):
   exec = strs
   if '.cpp' == strs[0][-4:]:
     compile = 'g++ ' + CXX_FLAGS + ' ' + strs[0] + ' -o ' + strs[0][:-4]
-    exec = [strs[0][:-4]] + strs[1:]
+    exec = ['./' + strs[0][:-4]] + strs[1:]
   elif '.c' == strs[0][-2:]:
     compile = 'gcc ' + C_FLAGS + ' ' + strs[0] + ' -o ' + strs[0][:-2]
-    exec = [strs[0][:-2]] + strs[1:]
+    exec = ['./' + strs[0][:-2]] + strs[1:]
   #print(compile, exec)
   if compile != '':
     print('compiling', strs[0], '...')
