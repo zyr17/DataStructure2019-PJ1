@@ -58,7 +58,9 @@ for input in inputs:
     jres = ''
     score = -1
     for line in res.split('\n'):
-        if line[:25] == 'Judge return code:       ':
+        if line == 'Time Limit Excedeed':
+            jres = 'Time Limit Excedeed'
+        elif line[:25] == 'Judge return code:       ':
             jcode = int(line[25:])
         elif line[:25] == 'Judge standard error:    ':
             jres = line[25:]
