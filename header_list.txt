@@ -4,6 +4,7 @@ limits.h
 math.h
 stdbool.h
 stdint.h
+stdio.h
 stdlib.h
 string.h
 time.h

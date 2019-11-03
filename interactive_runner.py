@@ -52,8 +52,8 @@ sep_index = sys.argv.index("--")
 judge_args = sys.argv[1:sep_index]
 sol_args = sys.argv[sep_index + 1:]
 
-C_FLAGS = '-O2'
-CXX_FLAGS = '-O2 -std=c++11'
+C_FLAGS = '-O2 -w'
+CXX_FLAGS = '-O2 -std=c++11 -w'
 
 def C_CXX_Compile(strs):
   compile = ''

@@ -1,7 +1,7 @@
 import os, sys, subprocess
 
-C_FLAGS = '-O2'
-CXX_FLAGS = '-O2 -std=c++11'
+C_FLAGS = '-O2 -w'
+CXX_FLAGS = '-O2 -std=c++11 -w'
 
 def C_CXX_Compile(string):
   compile = ''

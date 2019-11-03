@@ -65,7 +65,7 @@ int main(int argc, char **argv) {
 		//fprintf(stderr, "|%s|", inputfile.c_str()); 
 	}
 
-	f = fopen(inputfile.data(), "r"); 
+	f = fopen(inputfile.c_str(), "r");
 	fscanf(f, "%d%d", &n, &k); 
 	for (int i = 1; i <= n; ++i) fscanf(f, "%d", &a[i]);
 	std::ios::sync_with_stdio(false);
