@@ -115,7 +115,7 @@ int main(int argc, char **argv) {
 	}
 	for (int i = 1; i < n; ++i)
 		if (a[i] > a[i+1]) {
-			fprintf(stderr, "Array still not in order!" ); 
+			fprintf(stderr, "Array not in order!" ); 
 			printf("-1\n");
 			fflush(stdout);
 			return 1;
