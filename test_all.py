@@ -66,8 +66,6 @@ for input in inputs:
             jres = line[25:]
             if jcode == 0 and line[25:40] == 'Passed! Score: ':
                 score = int(line[40:])
-            else:
-                score = 0
         elif line[:25] == 'Solution return code:    ':
             scode = int(line[25:])
             break
