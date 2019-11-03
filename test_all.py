@@ -5,7 +5,7 @@ CXX_FLAGS = '-O2 -std=c++11'
 
 def C_CXX_Compile(string):
   compile = ''
-  exec = string
+  exec = [string]
   if '.cpp' == string[-4:]:
     compile = 'g++ ' + CXX_FLAGS + ' ' + string + ' -o ' + string[:-4]
     exec = ['./' + string[:-4]]
