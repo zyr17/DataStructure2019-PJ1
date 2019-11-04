@@ -43,6 +43,7 @@ if judger_err != '' or solver_err != '':
 
 datafolder = argv[1]
 inputs = os.listdir(datafolder)
+inputs.sort(key = lambda x:int(x[:-3]))
 
 results = []
 
@@ -69,7 +70,7 @@ for input in inputs:
         elif line[:25] == 'Solution return code:    ':
             scode = int(line[25:])
             break
-    results.append([jcode, jres, scode, score])
+    results.append([jcode, jres, scode, score, input[:-3]])
 
 print('Results:')
 print('\n'.join(['|'.join(x) for x in [[str(z) for z in y] for y in results]]))
