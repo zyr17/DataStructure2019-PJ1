@@ -65,8 +65,8 @@ for input in inputs:
             jcode = int(line[25:])
         elif line[:25] == 'Judge standard error:    ':
             jres = line[25:]
-            if jcode == 0 and line[25:40] == 'Passed! Score: ':
-                score = int(line[40:])
+            if jcode == 0 and line[25:39] == 'Passed! Swap: ':
+                score = int(line[39:])
         elif line[:25] == 'Solution return code:    ':
             scode = int(line[25:])
             break
