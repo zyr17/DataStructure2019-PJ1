@@ -52,7 +52,7 @@ int main(int argc, char **argv) {
 	fprintf(log_file, "Solver              |Judger\n");
 	#endif
 	
-	string inputfile = "input.in"; 
+	string inputfile = "data/0.in"; 
 
 	if (argc > 2){
 		fprintf(stderr, "Too many arguments! Should input 0 or 1 argument.");
