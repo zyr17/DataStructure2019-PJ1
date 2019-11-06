@@ -121,7 +121,7 @@ int main(int argc, char **argv) {
 			return 1;
 		}
 	printf("%d\n", score);
-	fprintf(stderr, "Passed! Swap: %d", score); 
+	fprintf(stderr, "Passed! Asks: %d", score); 
 	fflush(stderr);
 	return 0; 
 }
