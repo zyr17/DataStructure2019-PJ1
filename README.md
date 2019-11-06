@@ -17,7 +17,7 @@
 
 **header_list.txt**: C和C++允许的头文件列表。对于C的头文件，使用C++风格的写法也是允许的，如允许stdio.h也允许cstdio。
 
-**interactive_runner.py**: 用于两个程序进行交互，如果输入为源文件会自动先对其进行编译。使用格式为`python3 [Judger bin/src] [judger args] -- [Solver bin/src] [solver args]`。例如：`python3 judger.cpp data/0.in -- solver.c`，会编译两个源文件，选择指定数据给Judger，并连接Judger和Solver进行交互。
+**interactive_runner.py**: 用于两个程序进行交互，如果输入为源文件会自动先对其进行编译。使用格式为`python3 interactive_runner.py [Judger bin/src] [judger args] -- [Solver bin/src] [solver args]`。例如：`python3 interactive_runner.py judger.cpp data/0.in -- solver.c`，会编译两个源文件，选择指定数据给Judger，并连接Judger和Solver进行交互。
 
 **judger.cpp**: 评测程序。如果没有参数输入那么会读取`data/0.in`作为初始数组，否则读取参数指定数据作为初始数组。同时程序会在交互的同时生成log.txt记录Judger和Solver的所有输出，便于调试。
 
