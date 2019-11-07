@@ -11,3 +11,8 @@ time.h
 
 iostream
 string
+limits
+utility
+random
+ratio
+tuple
