@@ -1,0 +1,10 @@
+*.exe
+solver-qsort.cpp
+log.txt
+judger
+solver
+maker
+data/*
+submit
+username.txt
+result.csv
