@@ -6,3 +6,6 @@ solver
 maker
 data/*
 !data/0.in
+submit
+username.txt
+result.csv
